@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import EmployeeTable from './EmployeeTable'
 import { GetAllEmployees } from '../api';
 import AddEmployee from './AddEmployee';
+import { ToastContainer } from 'react-toastify';
 
 function EmployeeManagementApp() {
 
@@ -59,6 +60,11 @@ function EmployeeManagementApp() {
                     />
                 </div>
             </div>
+            <ToastContainer
+                position='top-right'
+                autoClose={3000}
+                hideProgressBar={false}
+            />
         </div>
     )
 }
