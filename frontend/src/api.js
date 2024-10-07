@@ -36,3 +36,55 @@ export const CreateEmployees = async (empObj) => {
         return err;
     }
 }
+
+export const UpdateEmployeeById = async (empObj, id) => {
+    const url = `${BASE_URL}/api/employees/${id}`;
+    try {
+        const formData = new FormData();
+
+        for(const key in empObj) {
+            formData.append(key, empObj[key]);
+        }
+
+        const options = {
+            method: 'PUT',
+            'Content-Type': 'application/json',
+            body: formData
+        }
+        const result = await fetch(url, options);
+        const data = await result.json();
+        return data;
+    } catch(err) {
+        return err;
+    }
+}
+
+export const DeleteEmployeeById = async (id) => {
+    const url = `${BASE_URL}/api/employees/${id}`;
+    try {
+        const options = {
+            method: 'DELETE',
+            'Content-Type': 'application/json'
+        }
+        const result = await fetch(url, options);
+        const data = await result.json();
+        return data;
+    } catch(err) {
+        return err;
+    }
+}
+
+export const GetEmployeeById = async (id) => {
+    const url = `${BASE_URL}/api/employees/${id}`;
+    try {
+        const options = {
+            method: 'GET',
+            'Content-Type': 'application/json'
+        }
+        const result = await fetch(url, options);
+        const data = await result.json();
+        return data;
+    } catch(err) {
+        return err;
+    }
+}

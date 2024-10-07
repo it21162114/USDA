@@ -1,9 +1,8 @@
-import React, { useState } from 'react'
-import { CreateEmployees } from '../api';
+import React, { useEffect, useState } from 'react'
+import { CreateEmployees, UpdateEmployeeById } from '../api';
 import { notify } from '../utils';
 
-function AddEmployee({showModal, setShowModal}) {
-
+function AddEmployee({showModal, setShowModal, fetchEmployees, updateEmpObj}) {
     const [employee, setEmployee] = useState({
         employee_number:'',
         name:'',
@@ -26,6 +25,39 @@ function AddEmployee({showModal, setShowModal}) {
         regarding_promotions:''
     })
 
+    const [updateMode, setUpdateMode] = useState(false);
+
+    useEffect(() => {
+        if(updateEmpObj){
+            setUpdateMode(true);
+            setEmployee(updateEmpObj)
+        }
+    }, [updateEmpObj])
+
+    const resetEmoployeeStates = () => {
+        setEmployee({
+            employee_number:'',
+            name:'',
+            profileImage: null, 
+            id_number:'',
+            address_permanent:'',
+            address_temporary:'',
+            birthday:'',
+            email:'',
+            phone_number:'',
+            position:'',
+            date_of_oppointment:'',
+            grade:'',
+            department:'',
+            educational_qualification:'',
+            date_of_grant_of_pay_increment:'',
+            date_of_retirement:'',
+            date_of_resignation:'',
+            awarding_of_gratuities:'',
+            regarding_promotions:''
+        })
+    }
+
     const handleClose = () => {
         setShowModal(false);
     }
@@ -39,17 +71,24 @@ function AddEmployee({showModal, setShowModal}) {
         setEmployee({ ...employee, profileImage: e.target.files[0] });
     }
 
+    //Add or Update Employee
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log(employee);
         try{
-            const {success, message} = await CreateEmployees(employee);
+            const {success, message} = 
+            updateMode ? 
+                await UpdateEmployeeById(employee, employee._id) :
+                await CreateEmployees(employee);
             console.log(success, message);
             if(success){
                 notify(message, 'Success');
             }else{
                 notify(message, 'Error');
             }
+            setShowModal(false);
+            resetEmoployeeStates();
+            fetchEmployees();
         } catch(err) {
             notify('Failed to create Employee, Try again later', 'Error');
         }
@@ -60,7 +99,9 @@ function AddEmployee({showModal, setShowModal}) {
             <div className='modal-dialog' role='document'>
                 <div className='modal-content'>
                     <div className='modal-header'>
-                        <h5>Add Employee</h5>
+                        <h5>
+                            {updateMode ? 'Update Employee' : 'Add Employee'}
+                        </h5>
                         <button type='button' className='btn-close' onClick={() => handleClose()}></button>
                     </div>
 
@@ -95,7 +136,6 @@ function AddEmployee({showModal, setShowModal}) {
                                     className='form-control'
                                     name="profileImage"
                                     onChange={handleFileChange}
-                                    required
                                 />
                             </div>
                             <div className='mb-3'>
@@ -275,7 +315,11 @@ function AddEmployee({showModal, setShowModal}) {
                                 />
                             </div>  
 
-                            <button className='btn btn-primary' type='submit'>Save</button>         
+                            <button className='btn btn-primary' type='submit'>
+                                {
+                                    updateMode ? 'Update' : 'Save'
+                                }    
+                            </button>         
                         </form>
                     </div>
 

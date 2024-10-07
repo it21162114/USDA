@@ -4,14 +4,16 @@ import {Link} from 'react-router-dom';
 function EmployeeTable({
     employees,
     pagination,
-    fetchEmployees
+    fetchEmployees,
+    handleUpdateEmployee,
+    handleDeleteEmployee
 }) {
     const headers = ['Emp_Number', 'Name', 'Email', 'Department', 'Actions'];
     const {currentPage, totalPages} = pagination;
     const TableRow = ({employee}) => {
         return <tr>
             <td>
-                <Link to ={'/employee/id'} className='text-decoration-none'>
+                <Link to ={`/employee/${employee._id}`} className='text-decoration-none'>
                     {employee.employee_number}                
                 </Link>
             </td>
@@ -24,7 +26,8 @@ function EmployeeTable({
                 role='button'
                 data-bs-toggle="tooltip"
                 data-bs-placement="top"
-                onClick={()=>{ }}
+                onClick={() => handleUpdateEmployee(employee)}
+                title='Edit'
                 >
                 </i>
 
@@ -33,7 +36,8 @@ function EmployeeTable({
                 role='button'
                 data-bs-toggle="tooltip"
                 data-bs-placement="top"
-                onClick={()=>{ }}
+                onClick={() => handleDeleteEmployee(employee)}
+                title='Delete'
                 >
                 </i>
             </td>

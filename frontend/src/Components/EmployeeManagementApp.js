@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import EmployeeTable from './EmployeeTable'
-import { GetAllEmployees } from '../api';
+import { DeleteEmployeeById, GetAllEmployees } from '../api';
 import AddEmployee from './AddEmployee';
 import { ToastContainer } from 'react-toastify';
+import { notify } from '../utils';
 
 function EmployeeManagementApp() {
 
     const [showModal, setShowModal] = useState(false);
+    const [updateEmpObj, setUpdateEmpObj] = useState(false);
     const [employeeData, setEmployeeData] = useState({
         "employees":[],
         "pagination": {
@@ -34,6 +36,26 @@ function EmployeeManagementApp() {
         setShowModal(true)
     }
 
+    const handleUpdateEmployee = (empObj) => {
+        console.log('Update Obj', empObj);
+        setUpdateEmpObj(empObj);
+        setShowModal(true);
+    }
+
+    const handleDeleteEmployee = async (emp) => {
+        try {
+            const {success, message} = await DeleteEmployeeById(emp._id);
+            if(success){
+                notify(message, 'Success');
+            }else{
+                notify(message, 'Error');
+            }
+        }catch(err) {
+            console.log('Error', err);
+            notify(err, 'Error');
+        }
+    }
+
     return (
         <div className='d-flex flex-column justify-content-center align-items-center w-100 p-3'>
             <h1>Employee Management App</h1>
@@ -50,11 +72,15 @@ function EmployeeManagementApp() {
                         />
                     </div>
                     <EmployeeTable
+                        handleUpdateEmployee={handleUpdateEmployee}
                         fetchEmployees={fetchEmployees}
                         employees={employeeData.employees}
                         pagination={employeeData.pagination}
+                        handleDeleteEmployee={handleDeleteEmployee}
                     />
                     <AddEmployee
+                        updateEmpObj={updateEmpObj}
+                        fetchEmployees={fetchEmployees}
                         showModal={showModal}
                         setShowModal={setShowModal}
                     />
@@ -66,8 +92,8 @@ function EmployeeManagementApp() {
                 hideProgressBar={false}
             />
         </div>
-    )
-}
+    );
+};
 
 export default EmployeeManagementApp
 
