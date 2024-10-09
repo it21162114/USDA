@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { notify } from '../utils';
 import { GetEmployeeById } from '../api';
+import backgroundImage from '../img/p1.jpg';
 
 function EmployeeDetails() {
     const { id } = useParams();
@@ -24,9 +25,16 @@ function EmployeeDetails() {
     },[id])
         
     return (
+    <div className='d-flex flex-column min-vh-100'
+        style={{
+            backgroundImage: `url(${backgroundImage})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center'
+        }}
+    >    
         <div className="container mt-5">
             <div className="card">
-                <div className="card-header">
+                <div className="d-flex flex-column card-header justify-content-center align-items-center">
                     <h2>Employee Details</h2>
                 </div>
                 <div className="card-body">
@@ -37,6 +45,7 @@ function EmployeeDetails() {
                                 alt={empDetails.name}
                                 className="img-fluid rounded"
                             />
+                            <h4>{empDetails.name}</h4>
                         </div>
                         <div className="col-md-9">
                         <h4>{empDetails.name}</h4>
@@ -65,6 +74,7 @@ function EmployeeDetails() {
                 </div>
             </div>
         </div>
+    </div>    
     )
 }
 

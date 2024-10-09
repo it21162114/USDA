@@ -4,6 +4,8 @@ import { DeleteEmployeeById, GetAllEmployees } from '../api';
 import AddEmployee from './AddEmployee';
 import { ToastContainer } from 'react-toastify';
 import { notify } from '../utils';
+import backgroundImage from '../img/p1.jpg';
+import './EmployeeManagementApp.css';
 
 function EmployeeManagementApp() {
 
@@ -62,14 +64,21 @@ function EmployeeManagementApp() {
     }
 
     return (
-        <div className='d-flex flex-column justify-content-center align-items-center w-100 p-3'>
-            <h1>Employee Management App</h1>
-            <div className='w-100 d-flex justify-content-center'>
-                <div className='w-80 border bg-light p3' style={{ width: '80%'}}>
-                    <div className='d-flex justify-content-between mb-3'>
-                        <button className='btn btn-primary' onClick={()=> handleAddEmployee()}>
-                            Add
-                        </button>
+    <div className='d-flex flex-column min-vh-100'
+         style={{
+            backgroundImage: `url(${backgroundImage})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center'
+         }}
+        >       
+            <div className='d-flex flex-column justify-content-center align-items-center w-100 p-3'>
+                <h1>USDA Employee Management System</h1>
+                <div className='w-100 d-flex justify-content-center'>
+                    <div className='w-80 border bg-light p3' style={{ width: '80%'}}>
+                        <div className='d-flex justify-content-between mb-3'>
+                            <button className='btn btn-primary' onClick={()=> handleAddEmployee()}>
+                                Add
+                            </button>
                         <input
                             onChange={handleSearch}
                             type='text'
@@ -98,6 +107,7 @@ function EmployeeManagementApp() {
                 hideProgressBar={false}
             />
         </div>
+    </div>        
     );
 };
 

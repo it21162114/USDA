@@ -22,17 +22,15 @@ function EmployeeTable({
             <td>{employee.department}</td>
             <td>
                 <i
-                className='bi bi-pencil-fill text-warning md-4'
+                className='bi bi-pencil-fill text-warning me-4'
                 role='button'
                 data-bs-toggle="tooltip"
                 data-bs-placement="top"
                 onClick={() => handleUpdateEmployee(employee)}
                 title='Edit'
-                >
-                </i>
-
+                ></i>
                 <i
-                className='bi bi-trash-fill text-danger md-4'
+                className='bi bi-trash-fill text-danger'
                 role='button'
                 data-bs-toggle="tooltip"
                 data-bs-placement="top"
