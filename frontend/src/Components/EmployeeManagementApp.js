@@ -21,7 +21,7 @@ function EmployeeManagementApp() {
         }
     });
 
-    const fetchEmployees = async (search = '', page = 1, limit = 5) => {
+    const fetchEmployees = async (search = '', page = 1, limit = 20) => {
         try {
             const {data} = await GetAllEmployees(search, page, limit);
             setEmployeeData(data);
@@ -35,6 +35,7 @@ function EmployeeManagementApp() {
     }, [])
 
     const handleAddEmployee = () => {
+         
         setShowModal(true)
     }
 
@@ -92,6 +93,7 @@ function EmployeeManagementApp() {
                         employees={employeeData.employees}
                         pagination={employeeData.pagination}
                         handleDeleteEmployee={handleDeleteEmployee}
+                        
                     />
                     <AddEmployee
                         updateEmpObj={updateEmpObj}
