@@ -14,6 +14,8 @@ const Home = () => {
     <div className="home-container">
       {/* Header Section */}
       <header className="home-header">
+        
+        
         <div className="logo">
           <img src="../img/LogoUSDA.png" alt="USDA Logo" className="logo-img" />
         </div>
