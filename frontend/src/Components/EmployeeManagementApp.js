@@ -4,7 +4,7 @@ import { DeleteEmployeeById, GetAllEmployees } from '../api';
 import AddEmployee from './AddEmployee';
 import { ToastContainer } from 'react-toastify';
 import { notify } from '../utils';
-import backgroundImage from '../img/p1.jpg';
+import backgroundImage from '../img/WelcomePageBg.jpg';
 import './EmployeeManagementApp.css';
 import { Spinner, Button } from 'react-bootstrap'; // New imports for better UI
 
@@ -80,16 +80,17 @@ function EmployeeManagementApp() {
             }}
         >
             <div className='d-flex flex-column justify-content-center align-items-center w-100 p-3'>
-                <h1>USDA Employee Management System</h1>
+                <h1 className='text-shadow' style={{ fontSize: '3rem', fontWeight: 'bold' }}>USDA Employee Management System</h1>
 
-                <div className='w-100 d-flex justify-content-center'>
-                    <div className='w-80 border bg-light p-3' style={{ width: '80%' }}>
-                        <div className='d-flex justify-content-between mb-3'>
+                <div className='w-100 d-flex justify-content-center mt-4'>
+                    <div className='card border-light shadow-lg p-4' style={{ width: '85%', backgroundColor: 'rgba(255, 255, 255, 0.8)', borderRadius: '15px' }}>
+                        <div className='d-flex justify-content-between mb-4'>
                             <button
                                 className='btn btn-primary'
                                 onClick={handleAddEmployee}
+                                style={{ backgroundColor: '#ed7428', borderColor: '#28a745', color: '#fff', padding: '10px 20px', fontSize: '1.2rem' }}
                             >
-                                Add New Employee
+                                + Add New Employee
                             </button>
 
                             <input
@@ -97,6 +98,7 @@ function EmployeeManagementApp() {
                                 type='text'
                                 placeholder='Search Employee by Name, Email or Department'
                                 className='form-control w-50'
+                                style={{ borderRadius: '25px', padding: '10px', fontSize: '1.1rem' }}
                             />
                         </div>
 
@@ -115,21 +117,25 @@ function EmployeeManagementApp() {
                                     pagination={employeeData.pagination}
                                     fetchEmployees={fetchEmployees}
                                 />
-                                <div className='d-flex justify-content-between mt-3'>
+                                <div className='d-flex justify-content-between align-items-center mt-3'>
                                     <Button
                                         variant="outline-primary"
                                         onClick={() => fetchEmployees('', employeeData.pagination.currentPage - 1)}
                                         disabled={employeeData.pagination.currentPage === 1}
+                                        className='shadow-sm'
                                     >
                                         Previous
                                     </Button>
 
-                                    <span>Page {employeeData.pagination.currentPage} of {employeeData.pagination.totalPages}</span>
+                                    <span style={{ fontSize: '1.1rem' }}>
+                                        Page {employeeData.pagination.currentPage} of {employeeData.pagination.totalPages}
+                                    </span>
 
                                     <Button
                                         variant="outline-primary"
                                         onClick={() => fetchEmployees('', employeeData.pagination.currentPage + 1)}
                                         disabled={employeeData.pagination.currentPage === employeeData.pagination.totalPages}
+                                        className='shadow-sm'
                                     >
                                         Next
                                     </Button>
