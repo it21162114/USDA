@@ -4,13 +4,13 @@
 }
 
 .modal-header {
-    background-color: #414850;
+    background-color: #4c4d50;
     color: #fff;
     font-weight: bold;
 }
 
 .modal-header .btn-close {
-    color: #fff;
+    color: #ee7403;
 }
 
 .form-control {

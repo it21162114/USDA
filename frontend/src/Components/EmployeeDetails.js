@@ -34,11 +34,11 @@ function EmployeeDetails() {
             }}
         >
             <div className="container mt-5">
-                <div className="card shadow-lg" style={{ borderRadius: '15px', borderColor: '#2f3336cc' }}>
+                <div className="card shadow-lg" style={{ borderRadius: '15px', borderColor: '#2f3336cc', backgroundColor: 'rgba(255, 255, 255, 0.8)' }}>
                     <div
                         className="card-header text-white text-center"
                         style={{
-                            background: 'linear-gradient(45deg, #3b82f6, #2f3336cc)',
+                            background: 'linear-gradient(45deg, #242526, #b3560b)',
                             borderTopLeftRadius: '15px',
                             borderTopRightRadius: '15px',
                             padding: '15px 0',
@@ -85,7 +85,7 @@ function EmployeeDetails() {
                             <button
                                 className="btn btn-outline-primary btn-lg px-4"
                                 onClick={() => navigate('/employee')}
-                                style={{ borderRadius: '30px', transition: '0.3s', background: 'linear-gradient(45deg, #3b82f6, #06b6d4)' }}
+                                style={{ borderRadius: '10px', transition: '0.3s', background: 'linear-gradient(45deg, #d9670b, #e09b07)' }}
                             >
                                 Back
                             </button>

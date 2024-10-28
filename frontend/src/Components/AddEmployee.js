@@ -94,7 +94,7 @@ function AddEmployee({ showModal, setShowModal, fetchEmployees, updateEmpObj }) 
         <div className={`modal ${showModal ? 'd-block' : ''}`} tabIndex={-1} role="dialog" style={{ display: showModal ? 'block' : 'none' }}>
             <div className="modal-dialog modal-lg" role="document">
                 <div className="modal-content shadow-lg">
-                    <div className="modal-header" style={{ backgroundColor: '#2f3336cc', color: '#fff' }}>
+                    <div className="modal-header" style={{ backgroundColor: '#4c4d50', color: '#fff' }}>
                         <h5 className="modal-title">{updateMode ? 'Update Employee' : 'Add Employee'}</h5>
                         <button type="button" className="btn-close" onClick={handleClose}></button>
                     </div>
