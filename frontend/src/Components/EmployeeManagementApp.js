@@ -80,7 +80,7 @@ function EmployeeManagementApp() {
             }}
         >
             <div className='d-flex flex-column justify-content-center align-items-center w-100 p-3'>
-                <h1 className='text-shadow' style={{ fontSize: '3rem', fontWeight: 'bold' }}>USDA Employee Management System</h1>
+                <h1 className='text-shadow' style={{ fontSize: '3rem', fontWeight: 'bold' }}> USDA Employee Management System</h1>
 
                 <div className='w-100 d-flex justify-content-center mt-4'>
                     <div className='card border-light shadow-lg p-4' style={{ width: '85%', backgroundColor: 'rgba(255, 255, 255, 0.8)', borderRadius: '15px' }}>

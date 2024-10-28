@@ -2,7 +2,7 @@ import React, { useEffect, useState, useCallback } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { notify } from '../utils';
 import { GetEmployeeById } from '../api';
-import backgroundImage from '../img/p1.jpg';
+import backgroundImage from '../img/p3.jpeg';
 import { FaPhoneAlt, FaEnvelope, FaHome, FaUser, FaBirthdayCake } from 'react-icons/fa';
 
 function EmployeeDetails() {
@@ -34,11 +34,11 @@ function EmployeeDetails() {
             }}
         >
             <div className="container mt-5">
-                <div className="card shadow-lg" style={{ borderRadius: '15px', borderColor: '#3b82f6' }}>
+                <div className="card shadow-lg" style={{ borderRadius: '15px', borderColor: '#2f3336cc' }}>
                     <div
                         className="card-header text-white text-center"
                         style={{
-                            background: 'linear-gradient(45deg, #3b82f6, #06b6d4)',
+                            background: 'linear-gradient(45deg, #3b82f6, #2f3336cc)',
                             borderTopLeftRadius: '15px',
                             borderTopRightRadius: '15px',
                             padding: '15px 0',
