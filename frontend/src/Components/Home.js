@@ -31,7 +31,7 @@ const Home = () => {
 
       <div className="button-section">
         <button className="custom-button" onClick={() => handleNavigation('/employee')}>Employee Management</button>
-        <button className="custom-button" onClick={() => handleNavigation('/FileManagementApp')}>File Management</button>
+        <button className="custom-button" onClick={() => handleNavigation('/Folderselect')}>File Management</button>
         <button className="custom-button" onClick={() => handleNavigation('/circulars')}>Circulars</button>
         <button className="custom-button" onClick={() => handleNavigation('/transport')}>Transport MGT</button>
         <button className="custom-button" onClick={() => handleNavigation('/performance')}>Performance MGT</button>

@@ -50,35 +50,35 @@ function App() {
                 <br />
                 <input
                     type="text"
-                    className="form-control"
-                    placeholder="Title"
+                    className="form-control inputField"
+                    placeholder="Enter Title"
                     required
                     onChange={(e) => setTitle(e.target.value)}   
                 />
-                <br />
+                
                 <input
                     type="file"
-                    className="form-control"
+                    className="form-control inputField"
                     accept="application/pdf"
                     required
                     onChange={(e) => setFile(e.target.files[0])}
                 />
-                <br />
-                <button className="btn btn-primary" type="submit">
+                
+                <button className="btn btn-submit" type="submit">
                 Submit
                 </button>
             </form>
             <br />
             <div className="uploaded">
-            <h4>Uploaded PDF:</h4>
+              <h3>Uploaded PDF:</h3>
             <div className="output-div">
               {allImage == null
-                    ? ""
+                    ? <p>No PDFs uploaded yet.</p>
                     : allImage.map((data, index) => (
                   <div className="inner-div" key={index}>
-                    <h6>Title: {data.title}</h6>
+                    <h4>Title: {data.title}</h4>
                     <button
-                      className="btn btn-primary"
+                      className="btn btn-show"
                       onClick={() => showPdf(data.pdf)}
                     >
                       Show Pdf

@@ -5,6 +5,7 @@ import EmployeeDetails from './Components/EmployeeDetails';
 import Welcomepage from './Components/Welcomepage';
 import Home from './Components/Home';
 import FileManagementApp from './Components/FileManagementApp';
+import Folderselect from './Components/Folderselect';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/employee" element={<EmployeeManagementApp />} />
           <Route path="/employee/:id" element={<EmployeeDetails />} />
           <Route path="/FileManagementApp" element={<FileManagementApp />} />
+          <Route path="/Folderselect" element={<Folderselect />} />
         </Routes>
       </BrowserRouter>
     </div>
