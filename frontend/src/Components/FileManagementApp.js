@@ -55,7 +55,6 @@ function App() {
                     required
                     onChange={(e) => setTitle(e.target.value)}   
                 />
-                
                 <input
                     type="file"
                     className="form-control inputField"
@@ -63,10 +62,7 @@ function App() {
                     required
                     onChange={(e) => setFile(e.target.files[0])}
                 />
-                
-                <button className="btn btn-submit" type="submit">
-                Submit
-                </button>
+                <button className="btn btn-submit" type="submit">Submit</button>
             </form>
             <br />
             <div className="uploaded">
@@ -87,7 +83,7 @@ function App() {
               ))}
         </div>
       </div>
-      <PdfComp pdfFile={pdfFile}/>
+      <div className="pdfdisplay"><PdfComp pdfFile={pdfFile}/></div>
     </div>
     );
 }
