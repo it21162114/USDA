@@ -1,0 +1,55 @@
+/* General styling */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f4f8; /* Light background for a modern look */
+  }
+
+.home-container1 {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-image: url('../img/AccessDenied.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+/* Button section styling */
+.button-section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Two columns */
+    gap: 100px;
+    justify-items: center;
+    padding: 120px;
+  }
+  
+  .custom-button {
+    background-color: #ff8c00; /* Orange background color */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 20px;
+    width: 500px; /* Fixed width */
+    height: 100px; /* Fixed height */
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  }
+  
+  .custom-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    background-color: #e07b00; /* Darker orange on hover */
+  }
+  
+  .custom-button:focus {
+    outline: none;
+  }
+  
+  .custom-button:active {
+    transform: translateY(0px);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  }  

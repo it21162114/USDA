@@ -20,7 +20,7 @@ const FolderPage = () => {
           <div className="division-title">Please Select Your Folder !</div>
           <div className="division-buttons">
             <button0 onClick={() => handleNavigation('/FileManagementApp')}>Roshan</button0>
-            <button0 onClick={() => handleNavigation('/FileManagementApp')}>Alwis</button0>
+            <button0 onClick={() => handleNavigation('/AccessDenied')}>Alwis</button0>
             <button0 onClick={() => handleNavigation('/FileManagementApp')}>Oshadhi</button0>
             <button0 onClick={() => handleNavigation('/FileManagementApp')}>Kenee</button0>
           </div>
