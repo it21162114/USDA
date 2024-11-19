@@ -14,11 +14,12 @@ code {
 
 .App{
   display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-top: 30px;
-    flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 30px;
+  flex-direction: column;
 }
+
 .formStyle{
   padding: 20px;
   border: 1px solid black;
@@ -31,13 +32,22 @@ code {
 }
 
 .pdf-div{
-  padding: 50px;
+  position: fixed;
+  top: 20px; /* Adjust to control distance from the top */
+  right: 100px; /* Adjust to control distance from the right */
+  left: 1000px;
+  width: 700px; /* Set width as needed */
+  max-height: 100vh; /* Limit height to fit within the screen */
+  overflow-y: auto; /* Allow scrolling if content overflows */
+  padding: 20px;
   background-color: rgb(125, 129, 128);
-  margin-top: 50px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000; /* Ensures it stays on top */
 }
 
 canvas.react-pdf__Page__canvas {
-  margin-bottom: 50px;
+  margin-bottom: 20px;
 }
 
 

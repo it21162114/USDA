@@ -6,6 +6,7 @@ import Welcomepage from './Components/Welcomepage';
 import Home from './Components/Home';
 import FileManagementApp from './Components/FileManagementApp';
 import Folderselect from './Components/Folderselect';
+import AccessDenied from './Components/AccessDenied';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/employee/:id" element={<EmployeeDetails />} />
           <Route path="/FileManagementApp" element={<FileManagementApp />} />
           <Route path="/Folderselect" element={<Folderselect />} />
+          <Route path="/AccessDenied" element={<AccessDenied />} />
         </Routes>
       </BrowserRouter>
     </div>

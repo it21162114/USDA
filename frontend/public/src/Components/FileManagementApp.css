@@ -8,9 +8,15 @@ body {
     background-color: #5e5e5c;
     padding: 20px;
     border-radius: 10px;
-    max-width: 2000px;
+    width: 3000px;
     margin: 0 auto;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+    align-items: flex-start;
+    height: 950px;
+    position: fixed;
 }
 
 .formStyle {
@@ -18,12 +24,15 @@ body {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
+    max-width: 10000px;
+    position: fixed;
+    top: 40px; /* Adjust to control distance from the top */
+    left: 160px;
 }
 
 h2, h3 {
     color: #333;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 .inputField {
@@ -37,16 +46,16 @@ h2, h3 {
 }
 
 .btn-submit {
-    background-color: #FFA500; /* Orange color */
-    color: white;
+    background-color: #FFA500; /* Orange color for button background */
+    color: white; /* White text color for contrast */
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Shadow to increase visibility */
+    transition: background-color 0.4s ease, transform 0.2s ease;
+    box-shadow: 0px 4px 8px rgb(255, 145, 0); /* Shadow to increase visibility */
 }
 
 .btn-submit:hover {
@@ -63,9 +72,10 @@ h2, h3 {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    width: 100%; /* Expand to the full width of the container */
-    max-width: 800px; /* Set a maximum width for larger screens */
-    margin: 0 auto; /* Center align */
+    width: 50%; /* Expand to the full width of the container */
+    max-width: 800px;
+    position: fixed;
+    top: 350px; /* Adjust to control distance from the top */ 
 }
 
 .output-div {
@@ -73,12 +83,10 @@ h2, h3 {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    width: 100%; /* Expand to the full width of the .uploaded container */
 }
 
 .inner-div {
     padding: 10px;
-    margin-bottom: 10px;
     background-color: #e9f0f5;
     border-radius: 5px;
     display: flex;
@@ -93,7 +101,7 @@ h2, h3 {
 }
 
 .btn-show {
-    background-color: #757473; /* Orange color */
+    background-color: #FF8C00; /* Orange color */
     color: white;
     padding: 10px 20px;
     border: none;
@@ -102,7 +110,7 @@ h2, h3 {
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Shadow to increase visibility */
+    box-shadow: 0px 4px 8px rgb(255, 166, 0); /* Shadow to increase visibility */
 }
 
 .btn-show:hover {
@@ -120,3 +128,5 @@ h4, h6 {
     content: "Title: ";
     font-weight: bold; /* Make the "Title:" label bold */
 }
+
+

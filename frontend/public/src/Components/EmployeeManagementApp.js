@@ -67,7 +67,7 @@ function EmployeeManagementApp() {
     };
 
     const handleSearch = (e) => {
-        const term = e.target.value;
+        const term = e.target.value.trim(); // Trim extra spaces;
         fetchEmployees(term);
     };
 
@@ -96,7 +96,7 @@ function EmployeeManagementApp() {
                             <input
                                 onChange={handleSearch}
                                 type='text'
-                                placeholder='Search Employee by Name, Email or Department'
+                                placeholder='Search Employee by Employee Number or Name'
                                 className='form-control w-50'
                                 style={{ borderRadius: '25px', padding: '10px', fontSize: '1.1rem' }}
                             />
