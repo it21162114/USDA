@@ -38,12 +38,15 @@ const getAllEmployees = async (req, res) => {
         let searchCriteria = {};
         if (search) {
             searchCriteria = {
-                name: {
-                    $regex: search,
-                    $options: 'i' // case insensitive
-                }
-            }
+                $or: [
+                    { name: { $regex: search, $options: 'i' } }, // Search by name (case-insensitive)
+                    { employee_number: isNaN(search) ? null : parseInt(search) } // Search by employee_number if it's a valid number
+                ]
+            };
         }
+
+       
+        
         // Get the total number of employees for pagination info
         const totalEmoloyess = await EmployeeModel.countDocuments(searchCriteria);
 
