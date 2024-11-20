@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './AccessDenied.css';
 
 const AccessDenied = () => {
+
     const navigate = useNavigate();
   
     const handleNavigation = (route) => {
@@ -10,12 +11,26 @@ const AccessDenied = () => {
     };
   
     return (
-      <div className="home-container1">
-        <div className="button-section">
-          <button className="custom-button" onClick={() => handleNavigation('/Folderselect')}>Back</button>
-        </div>
+      <div className="access-denied-container">
+          <div className="lock-icon">
+              <img
+                  src="https://img.icons8.com/ios/100/000000/lock--v1.png" // Placeholder lock icon
+                  alt="Lock Icon"
+              />
+          </div>
+          <h1>Access denied</h1>
+          <p>
+              You don't have permissions to access this page. <br />
+              Contact an administrator to get permissions or go to the home page and browse other pages.
+          </p>
+          <button
+              className="go-home-button"
+              onClick={() => handleNavigation('/Folderselect')} // Redirect to back
+          >
+              Go to back
+          </button>
       </div>
-    );
-  };
+  );
+};
   
-  export default AccessDenied;
+export default AccessDenied;

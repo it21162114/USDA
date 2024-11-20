@@ -8,6 +8,7 @@ require('./Models/db');
 const EmployeeRouter = require('./Routes/EmployeeRoutes');
 const mongoose = require("mongoose");
 const multer  = require('multer');
+const pdfGenerator = require('./Controllers/pdfGenerator');
 
 app.use(cors());
 app.use(cors({ origin: 'http://localhost:3000' }));
@@ -61,7 +62,10 @@ app.get("/get-files", async (req, res) => {
         res.send({ status: "ok", data: data });
       });
     } catch (error) {}
-  });  
+  });
+  
+// Routes
+app.post('/generate-letter', pdfGenerator.generateLetter);  
 
 //apis
 app.get("/", async (req, res) => {

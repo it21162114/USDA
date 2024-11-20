@@ -8,7 +8,6 @@ import backgroundImage from '../img/p4.jpeg';
 import './EmployeeManagementApp.css';
 import { Spinner, Button } from 'react-bootstrap'; // New imports for better UI
 
-
 function EmployeeManagementApp() {
 
     const [showModal, setShowModal] = useState(false);
