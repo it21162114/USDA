@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./Form.css"; // Assuming you're using an external CSS file for styles
+import backgroundImage from '../img/letterformbg.jpg';
 
 const Form = () => {
   const [formData, setFormData] = useState({
@@ -67,11 +68,18 @@ const Form = () => {
   };
 
   return (
+    <div className="App1" style={{
+      backgroundImage: `url(${backgroundImage})`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center'
+    }}>
     <div className="form-container">
       <h1 className="form-header">Service Confirmation Form</h1>
       <form onSubmit={handleSubmit} className="form">
         <div className="form-section">
-          <h2>Employee Details</h2>
+          <h2>Enter Details Here -:</h2>
+          <br></br>
+          <label className="form-label">File Number</label>
           <input
             name="fileNo"
             placeholder="File No"
@@ -80,6 +88,7 @@ const Form = () => {
             required
             className="form-input"
           />
+          <label className="form-label">Date</label>
           <input
             name="date"
             type="date"
@@ -88,6 +97,7 @@ const Form = () => {
             required
             className="form-input"
           />
+          <label className="form-label">Employee Name</label>
           <input
             name="employeeName"
             placeholder="Employee Name"
@@ -96,6 +106,7 @@ const Form = () => {
             required
             className="form-input"
           />
+          <label className="form-label">Employee No</label>
           <input
             name="employeeNo"
             placeholder="Employee No"
@@ -104,6 +115,7 @@ const Form = () => {
             required
             className="form-input"
           />
+          <label className="form-label">NIC</label>
           <input
             name="nic"
             placeholder="NIC"
@@ -112,6 +124,7 @@ const Form = () => {
             required
             className="form-input"
           />
+          <label className="form-label">Address</label>
           <input
             name="address"
             placeholder="Address"
@@ -120,6 +133,7 @@ const Form = () => {
             required
             className="form-input"
           />
+          <label className="form-label">Designation</label>
           <input
             name="designation"
             placeholder="Designation"
@@ -128,6 +142,7 @@ const Form = () => {
             required
             className="form-input"
           />
+          <label className="form-label">Nature of Appointment</label>
           <input
             name="natureOfAppointment"
             placeholder="Nature of Appointment"
@@ -136,6 +151,7 @@ const Form = () => {
             required
             className="form-input"
           />
+          <label className="form-label">Retirement Date</label>
           <input
             name="retirementDate"
             type="date"
@@ -144,6 +160,7 @@ const Form = () => {
             required
             className="form-input"
           />
+          <label className="form-label">Comments</label>
           <textarea
             name="comments"
             placeholder="Comments"
@@ -188,7 +205,7 @@ const Form = () => {
               required
               className="form-input"
             />
-            <button type="button" onClick={addRow} className="btn btn-add">
+            <button type="button" onClick={addRow} className="btn1 btn-add">
               Add Row
             </button>
           </div>
@@ -202,10 +219,12 @@ const Form = () => {
         </div>
 
         <button type="submit" className="btn1 btn-submit1">
+
           Generate PDF
         </button>
       </form>
     </div>
+  </div>
   );
 };
 
