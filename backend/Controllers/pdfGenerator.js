@@ -37,7 +37,7 @@ exports.generateLetter = (req, res) => {
   doc.fontSize(14).text(`SERVICE CONFIRMATION LETTER`, { align: 'center', underline: true });
   doc.moveDown();
   doc.font('Courier')
-   .fontSize(12)
+   .fontSize(24)
    .text(`Employee Name          : ${employeeName}`)
    .text(`Employee No            : ${employeeNo}`)
    .text(`NIC                    : ${nic}`)
@@ -49,7 +49,7 @@ exports.generateLetter = (req, res) => {
   doc.text(`Comments: ${comments}`);
   doc.moveDown();
 
-  // Add table
+// Add table
 // Define table headers
 const tableHeaders = [
   { label: 'Position', property: 'position', width: 100 },
