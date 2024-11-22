@@ -36,26 +36,50 @@ exports.generateLetter = (req, res) => {
   doc.moveDown();
   doc.fontSize(14).text(`SERVICE CONFIRMATION LETTER`, { align: 'center', underline: true });
   doc.moveDown();
-  doc.fontSize(12).text(`Employee Name: ${employeeName}`);
-  doc.text(`Employee No: ${employeeNo}`);
-  doc.text(`NIC: ${nic}`);
-  doc.text(`Permanent Address: ${address}`);
-  doc.text(`Designation: ${designation}`);
-  doc.text(`Nature of Appointment: ${natureOfAppointment}`);
-  doc.text(`Retirement Date: ${retirementDate}`);
+  doc.font('Courier')
+   .fontSize(12)
+   .text(`Employee Name          : ${employeeName}`)
+   .text(`Employee No            : ${employeeNo}`)
+   .text(`NIC                    : ${nic}`)
+   .text(`Permanent Address      : ${address}`)
+   .text(`Designation            : ${designation}`)
+   .text(`Nature of Appointment  : ${natureOfAppointment}`)
+   .text(`Retirement Date        : ${retirementDate}`);
   doc.moveDown();
   doc.text(`Comments: ${comments}`);
   doc.moveDown();
 
   // Add table
-  tableData.forEach((row) => {
-    doc.text(`${row.position} | ${row.natureOfAppointment} | ${row.institute} | ${row.servicePeriod}`);
-  });
+// Define table headers
+const tableHeaders = [
+  { label: 'Position', property: 'position', width: 100 },
+  { label: 'Nature of Appointment', property: 'natureOfAppointment', width: 150 },
+  { label: 'Institute', property: 'institute', width: 150 },
+  { label: 'Service Period', property: 'servicePeriod', width: 100 }
+];
+
+// Create table with data
+doc.moveDown();
+doc.font('Courier-Bold').text('Service Details:', { align: 'left' });
+
+doc.fontSize(12).font('Courier');
+
+// Table layout
+doc.text(`${'Position'.padEnd(20)} | ${'Nature of Appointment'.padEnd(30)} | ${'Institute'.padEnd(30)} | ${'Service Period'.padEnd(15)}`);
+doc.text('-'.repeat(100));
+
+tableData.forEach(row => {
+  doc.text(
+    `${row.position.padEnd(20)} | ${row.natureOfAppointment.padEnd(30)} | ${row.institute.padEnd(30)} | ${row.servicePeriod.padEnd(15)}`
+  );
+});
+
+doc.moveDown();
 
   // Footer Section
   doc.moveDown(2);
   doc.fontSize(12).text('This letter is issued at her own request.', { align: 'left' });
-  doc.moveDown();
+  doc.moveDown(5);
   doc.text('Roshan Agampodi', { align: 'left' });
   doc.text('Head of Division (Administration)', { align: 'left' });
   doc.text('Urban Settlement Development Authority', { align: 'left' });
