@@ -37,7 +37,7 @@ exports.generateLetter = (req, res) => {
   doc.fontSize(14).text(`SERVICE CONFIRMATION LETTER`, { align: 'center', underline: true });
   doc.moveDown();
   doc.font('Courier')
-   .fontSize(24)
+   .fontSize(12)
    .text(`Employee Name          : ${employeeName}`)
    .text(`Employee No            : ${employeeNo}`)
    .text(`NIC                    : ${nic}`)
@@ -49,29 +49,43 @@ exports.generateLetter = (req, res) => {
   doc.text(`Comments: ${comments}`);
   doc.moveDown();
 
-// Add table
-// Define table headers
-const tableHeaders = [
-  { label: 'Position', property: 'position', width: 100 },
-  { label: 'Nature of Appointment', property: 'natureOfAppointment', width: 150 },
-  { label: 'Institute', property: 'institute', width: 150 },
-  { label: 'Service Period', property: 'servicePeriod', width: 100 }
-];
-
-// Create table with data
+// Add table header with borders
 doc.moveDown();
-doc.font('Courier-Bold').text('Service Details:', { align: 'left' });
+doc.font('Courier-Bold').fontSize(12).text('Service Details:', { align: 'left' });
+doc.moveDown(0.5);
 
-doc.fontSize(12).font('Courier');
+// Define column positions and widths
+const startX = 50; // Starting X position for the table
+const columnWidths = {
+  position: 100,
+  natureOfAppointment: 150,
+  institute: 150,
+  servicePeriod: 100,
+};
+let y = doc.y; // Starting Y position
 
-// Table layout
-doc.text(`${'Position'.padEnd(20)} | ${'Nature of Appointment'.padEnd(30)} | ${'Institute'.padEnd(30)} | ${'Service Period'.padEnd(15)}`);
-doc.text('-'.repeat(100));
+// Draw table headers with borders
+doc.fontSize(11).font('Courier-Bold');
+['Position', 'Nature of Appointment', 'Institute', 'Service Period'].forEach((header, index) => {
+  const x = startX + Object.values(columnWidths).slice(0, index).reduce((a, b) => a + b, 0);
+  doc
+    .rect(x, y, columnWidths[Object.keys(columnWidths)[index]], 20) // Draw header cell border
+    .stroke(); // Draw the border
+  doc.text(header, x + 5, y + 5, { width: columnWidths[Object.keys(columnWidths)[index]], align: 'left' });
+});
+y += 20; // Move down to the next row
 
-tableData.forEach(row => {
-  doc.text(
-    `${row.position.padEnd(20)} | ${row.natureOfAppointment.padEnd(30)} | ${row.institute.padEnd(30)} | ${row.servicePeriod.padEnd(15)}`
-  );
+// Draw table rows with borders
+doc.font('Courier').fontSize(11);
+tableData.forEach((row) => {
+  ['position', 'natureOfAppointment', 'institute', 'servicePeriod'].forEach((key, index) => {
+    const x = startX + Object.values(columnWidths).slice(0, index).reduce((a, b) => a + b, 0);
+    doc
+      .rect(x, y, columnWidths[key], 20) // Draw cell border
+      .stroke(); // Draw the border
+    doc.text(row[key], x + 5, y + 5, { width: columnWidths[key], align: 'left' });
+  });
+  y += 20; // Space between rows
 });
 
 doc.moveDown();
@@ -84,5 +98,5 @@ doc.moveDown();
   doc.text('Head of Division (Administration)', { align: 'left' });
   doc.text('Urban Settlement Development Authority', { align: 'left' });
 
-  doc.end();
+doc.end();
 };
