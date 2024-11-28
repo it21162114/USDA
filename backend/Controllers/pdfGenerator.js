@@ -46,9 +46,8 @@ exports.generateLetter = (req, res) => {
    .text(`Nature of Appointment  : ${natureOfAppointment}`)
    .text(`Retirement Date        : ${retirementDate}`);
   doc.moveDown();
-  doc.text(`Comments: ${comments}`);
-  doc.moveDown();
-
+  doc.text(`Comments : ${comments}`);
+  
 // Add table header with borders
 doc.moveDown();
 doc.font('Courier-Bold').fontSize(12).text('Service Details:', { align: 'left' });
@@ -59,8 +58,8 @@ const startX = 50; // Starting X position for the table
 const columnWidths = {
   position: 100,
   natureOfAppointment: 150,
-  institute: 150,
-  servicePeriod: 100,
+  institute: 90,
+  servicePeriod: 150,
 };
 let y = doc.y; // Starting Y position
 
@@ -88,15 +87,15 @@ tableData.forEach((row) => {
   y += 20; // Space between rows
 });
 
-doc.moveDown();
+// Footer Section
+doc.moveDown(2);
+doc.fontSize(12).text('This letter is issued at her own request.', 50); // Ensure text starts at X position 50
+doc.moveDown(3);
+doc.text('- - - - - - - - - - -', 50); // Align explicitly to the left
+doc.text('Roshan Agampodi', 50); // Align explicitly to the left
+doc.text('Head of Division (Administration)', 50); // Align explicitly to the left
+doc.text('Urban Settlement Development Authority', 50); // Align explicitly to the left
 
-  // Footer Section
-  doc.moveDown(2);
-  doc.fontSize(12).text('This letter is issued at her own request.', { align: 'left' });
-  doc.moveDown(5);
-  doc.text('Roshan Agampodi', { align: 'left' });
-  doc.text('Head of Division (Administration)', { align: 'left' });
-  doc.text('Urban Settlement Development Authority', { align: 'left' });
 
 doc.end();
 };
