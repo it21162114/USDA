@@ -84,3 +84,14 @@ body {
     font-size: 1.5rem;
     color: #007bff;
 }
+
+@media (max-width: 768px) {
+    .tables-container {
+        flex-direction: column;
+    }
+
+    .table-section {
+        margin-bottom: 20px;
+    }
+}
+
