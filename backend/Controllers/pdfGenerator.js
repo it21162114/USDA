@@ -32,9 +32,9 @@ exports.generateLetter = (req, res) => {
   doc.fontSize(12).text(`Date: ${date}`, { align: 'left' });
   doc.text(`File No:- ${fileNo}`, { align: 'left' });
   doc.moveDown();
-  doc.text(`TO WHOM IT MAY CONCERN`, { align: 'left' });
+  doc.font('Courier').text(`TO WHOM IT MAY CONCERN,`, { align: 'left' });
   doc.moveDown();
-  doc.fontSize(14).text(`SERVICE CONFIRMATION LETTER`, { align: 'center', underline: true });
+  doc.fontSize(14).text('SERVICE CONFIRMATION LETTER', { align: 'center', underline: true });
   doc.moveDown();
   doc.font('Courier')
    .fontSize(12)

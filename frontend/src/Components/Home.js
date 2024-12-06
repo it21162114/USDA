@@ -32,7 +32,7 @@ const Home = () => {
         <button className="custom-button" onClick={() => handleNavigation('/employee')}>Employee Management</button>
         <button className="custom-button" onClick={() => handleNavigation('/Folderselect')}>File Management</button>
         <button className="custom-button" onClick={() => handleNavigation('/Form')}>Service Letters</button>
-        <button className="custom-button" onClick={() => handleNavigation('/transport')}>Transport MGT</button>
+        <button className="custom-button" onClick={() => handleNavigation('/EmpIncrement')}>Increment</button>
         <button className="custom-button" onClick={() => handleNavigation('/performance')}>Performance MGT</button>
         <button className="custom-button" onClick={() => handleNavigation('/inventory')}>Inventory</button>
       </div>

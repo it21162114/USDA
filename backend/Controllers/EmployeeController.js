@@ -158,10 +158,60 @@ const updateEmployeeById = async (req, res) => {
     }
 }
 
+const getSelectedEmployeeFields = async (req, res) => {
+    try {
+        const employees = await EmployeeModel.find({}, 'employee_number name date_of_grant_of_pay_increment');
+        res.status(200).json({
+            message: 'Selected Employee Fields',
+            success: true,
+            data: employees
+        });
+    } catch (err) {
+        console.log('Error ', err);
+        res.status(500).json({
+            message: 'Internal Server Error',
+            success: false,
+            error: err
+        });
+    }
+};
+
+const getEmployeesWithUpcomingPayIncrement = async (req, res) => {
+    try {
+        // Get the current date and calculate the target date (five days prior)
+        const today = new Date();
+        const targetDate = new Date(today);
+        targetDate.setDate(today.getDate() + 5);
+
+        // Find employees with the matching date
+        const employees = await EmployeeModel.find({
+            date_of_grant_of_pay_increment: {
+                $gte: today.toISOString(),
+                $lte: targetDate.toISOString(),
+            },
+        }, 'employee_number name date_of_grant_of_pay_increment');
+
+        res.status(200).json({
+            message: 'Employees with upcoming pay increments',
+            success: true,
+            data: employees,
+        });
+    } catch (err) {
+        console.error('Error fetching employees with upcoming increments:', err);
+        res.status(500).json({
+            message: 'Internal Server Error',
+            success: false,
+            error: err,
+        });
+    }
+};
+
 module.exports = {
     createEmployee,
     getAllEmployees,
     getEmployeeById,
     deleteEmployeeById,
-    updateEmployeeById
+    updateEmployeeById,
+    getSelectedEmployeeFields,
+    getEmployeesWithUpcomingPayIncrement   
 }
