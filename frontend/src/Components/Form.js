@@ -73,6 +73,7 @@ const Form = () => {
       backgroundSize: 'cover',
       backgroundPosition: 'center'
     }}>
+      <button className='home-button' onClick={() => window.location.href = '/Home'}>Home</button>
     <div className="form-container">
       <h1 className="form-header">Service Confirmation Form</h1>
       <form onSubmit={handleSubmit} className="form">

@@ -45,6 +45,7 @@ function App() {
 
     return(
         <div className="App">
+          <button className='home-button' onClick={() => window.location.href = '/Folderselect'}>Back</button>
             <form className="formStyle" onSubmit={submitImage}>
                 <h4>Upload Pdf to USDA System</h4>
                 <br />

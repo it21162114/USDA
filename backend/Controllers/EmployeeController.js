@@ -181,7 +181,7 @@ const getEmployeesWithUpcomingPayIncrement = async (req, res) => {
         // Get the current date and calculate the target date (five days prior)
         const today = new Date();
         const targetDate = new Date(today);
-        targetDate.setDate(today.getDate() + 5);
+        targetDate.setDate(today.getDate() + 30);
 
         // Find employees with the matching date
         const employees = await EmployeeModel.find({

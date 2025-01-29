@@ -9,6 +9,7 @@ import Folderselect from './Components/Folderselect';
 import AccessDenied from './Components/AccessDenied';
 import Form from './Components/Form';
 import EmpIncrement from './Components/EmpIncrement';
+import LeaveForm from './Components/LeaveForm';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/AccessDenied" element={<AccessDenied />} />
           <Route path="/Form" element={<Form />} />
           <Route path="/EmpIncrement" element={<EmpIncrement />} />
+          <Route path="/LeaveForm" element={<LeaveForm />} />
         </Routes>
       </BrowserRouter>
     </div>
