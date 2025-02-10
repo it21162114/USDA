@@ -154,9 +154,9 @@ const updateEmployeeById = async (req, res) => {
             message: 'Internal Server Error',
             success: false,
             error: err
-        })
+        });
     }
-}
+};
 
 const getSelectedEmployeeFields = async (req, res) => {
     try {

@@ -28,10 +28,26 @@ function AddEmployee({ showModal, setShowModal, fetchEmployees, updateEmpObj }) 
 
     const [updateMode, setUpdateMode] = useState(false);
 
+    // Utility function to format date to YYYY-MM-DD
+    const formatDate = (dateString) => {
+        if (!dateString) return '';
+        const date = new Date(dateString);
+        return date.toISOString().split('T')[0];
+    };
+
     useEffect(() => {
         if (updateEmpObj) {
             setUpdateMode(true);
-            setEmployee(updateEmpObj);
+            // Format date fields before setting the state
+            const formattedEmployee = {
+                ...updateEmpObj,
+                birthday: formatDate(updateEmpObj.birthday),
+                date_of_oppointment: formatDate(updateEmpObj.date_of_oppointment),
+                date_of_grant_of_pay_increment: formatDate(updateEmpObj.date_of_grant_of_pay_increment),
+                date_of_retirement: formatDate(updateEmpObj.date_of_retirement),
+                date_of_resignation: formatDate(updateEmpObj.date_of_resignation)
+            };
+            setEmployee(formattedEmployee);
         }
     }, [updateEmpObj]);
 
