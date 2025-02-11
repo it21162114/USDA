@@ -57,7 +57,14 @@ const EmployeeTable = () => {
                 backgroundSize: 'cover',
                 backgroundPosition: 'center'
             }}>
-            <button className='home-button' onClick={() => window.location.href = '/Home'}>Home</button>
+            {/* Updated Home Button */}
+            <button 
+                className="home-button" 
+                onClick={() => window.location.href = '/Home'}
+            >
+                🏠 Home
+            </button>
+
             <div className="container">
                 <h1 className="title">Employee Increments Management System</h1>
                 <div className="tables-container">
@@ -116,7 +123,7 @@ const EmployeeTable = () => {
                                     ))
                                 ) : (
                                     <tr>
-                                        <td colSpan="4">No employees have pay increments in the next 5 days.</td>
+                                        <td colSpan="4">No employees have pay increments in the next 30 days.</td>
                                     </tr>
                                 )}
                             </tbody>

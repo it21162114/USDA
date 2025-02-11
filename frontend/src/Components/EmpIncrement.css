@@ -95,3 +95,51 @@ body {
     }
 }
 
+/* Home Button Styling */
+.home-button {
+    position: fixed;
+    /* Fixed position to stay in place while scrolling */
+    top: 20px;
+    /* Distance from the top */
+    left: 20px;
+    /* Distance from the left */
+    padding: 10px 20px;
+    /* Padding for better clickability */
+    font-size: 16px;
+    /* Font size */
+    font-weight: bold;
+    /* Bold text */
+    color: #fff;
+    /* White text color */
+    background: linear-gradient(45deg, #6a11cb, #2575fc);
+    /* Gradient background */
+    border: none;
+    /* Remove default border */
+    border-radius: 25px;
+    /* Rounded corners */
+    cursor: pointer;
+    /* Pointer cursor on hover */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    /* Subtle shadow */
+    transition: all 0.3s ease;
+    /* Smooth transition for hover effects */
+    z-index: 1000;
+    /* Ensure it stays on top of other elements */
+}
+
+/* Hover Effect */
+.home-button:hover {
+    background: linear-gradient(45deg, #2575fc, #6a11cb);
+    /* Reverse gradient on hover */
+    transform: scale(1.05);
+    /* Slightly enlarge the button */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+    /* Increase shadow on hover */
+}
+
+/* Active Effect */
+.home-button:active {
+    transform: scale(0.95);
+    /* Slightly shrink the button when clicked */
+}
+

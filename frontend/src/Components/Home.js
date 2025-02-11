@@ -25,7 +25,7 @@ const Home = () => {
         <div className="user-info"> 
         </div>
       </header>
-      <button className='home-button' onClick={() => window.location.href = '/'}>Back</button>
+      <button className='home-button' onClick={() => window.location.href = '/'}> ⬅️ Back</button>
       <div className="button-section">
         <button className="custom-button" onClick={() => handleNavigation('/employee')}>Employee Management</button>
         <button className="custom-button" onClick={() => handleNavigation('/Folderselect')}>File Management</button>

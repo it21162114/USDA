@@ -34,7 +34,7 @@ function EmployeeDetails() {
             }}
         >
             <div className="container mt-5">
-                <div className="card shadow-lg" style={{ borderRadius: '15px', borderColor: '#2f3336cc', backgroundColor: 'rgba(255, 255, 255, 0.8)' }}>
+                <div className="card shadow-lg" style={{ borderRadius: '15px', borderColor: '#2f3336cc', backgroundColor: 'rgba(255, 255, 255, 0.9)' }}>
                     <div
                         className="card-header text-white text-center"
                         style={{
@@ -46,9 +46,9 @@ function EmployeeDetails() {
                     >
                         <h2 className="mb-0">Employee Details</h2>
                     </div>
-                    <div className="card-body">
-                        <div className="row mb-3">
-                            <div className="col-md-3 text-center">
+                    <div className="card-body p-4">
+                        <div className="row">
+                            <div className="col-md-4 text-center mb-4">
                                 <img
                                     src={empDetails.profileImage || 'https://via.placeholder.com/150'}
                                     alt={empDetails.name}
@@ -56,32 +56,42 @@ function EmployeeDetails() {
                                     style={{ width: '150px', height: '150px', objectFit: 'cover', border: '5px solid #3b82f6' }}
                                 />
                                 <h4 className="mt-3">{empDetails.name}</h4>
+                                <p className="text-muted">{empDetails.position}</p>
                             </div>
-                            <div className="col-md-9">
-                                <h4 className="text-primary mb-3">
-                                    <FaUser className="me-2" />
-                                    {empDetails.name}
-                                </h4>
-                                <p><strong>Employee Number:</strong> {empDetails.employee_number}</p>
-                                <p><strong>ID Number:</strong> {empDetails.id_number}</p>
-                                <p><FaHome className="me-2 text-secondary" /><strong>Permanent Address:</strong> {empDetails.address_permanent}</p>
-                                <p><FaHome className="me-2 text-secondary" /><strong>Temporary Address:</strong> {empDetails.address_temporary}</p>
-                                <p><FaBirthdayCake className="me-2 text-warning" /><strong>Birthday:</strong> {new Date(empDetails.birthday).toLocaleDateString()}</p>
-                                <p><FaEnvelope className="me-2 text-danger" /><strong>Email:</strong> {empDetails.email}</p>
-                                <p><FaPhoneAlt className="me-2 text-success" /><strong>Phone Number:</strong> {empDetails.phone_number}</p>
-                                <p><strong>Position:</strong> {empDetails.position}</p>
-                                <p><strong>Date of Appointment:</strong> {new Date(empDetails.date_of_oppointment).toLocaleDateString()}</p>
-                                <p><strong>Grade:</strong> {empDetails.grade}</p>
-                                <p><strong>Department:</strong> {empDetails.department}</p>
-                                <p><strong>Educational Qualification:</strong> {empDetails.educational_qualification}</p>
-                                <p><strong>Date of Pay Increment:</strong> {new Date(empDetails.date_of_grant_of_pay_increment).toLocaleDateString()}</p>
-                                <p><strong>Date of Retirement:</strong> {new Date(empDetails.date_of_retirement).toLocaleDateString()}</p>
-                                <p><strong>Date of Resignation:</strong> {new Date(empDetails.date_of_resignation).toLocaleDateString()}</p>
-                                <p><strong>Awarding of Gratuities:</strong> {empDetails.awarding_of_gratuities}</p>
-                                <p><strong>Regarding Promotions:</strong> {empDetails.regarding_promotions}</p>
+                            <div className="col-md-8">
+                                <div className="row">
+                                    <div className="col-md-6">
+                                        <h5 className="text-primary mb-3">
+                                            <FaUser className="me-2" />
+                                            Personal Information
+                                        </h5>
+                                        <p><strong>Employee Number:</strong> {empDetails.employee_number}</p>
+                                        <p><strong>ID Number:</strong> {empDetails.id_number}</p>
+                                        <p><FaHome className="me-2 text-secondary" /><strong>Permanent Address:</strong> {empDetails.address_permanent}</p>
+                                        <p><FaHome className="me-2 text-secondary" /><strong>Temporary Address:</strong> {empDetails.address_temporary}</p>
+                                        <p><FaBirthdayCake className="me-2 text-warning" /><strong>Birthday:</strong> {new Date(empDetails.birthday).toLocaleDateString()}</p>
+                                        <p><FaEnvelope className="me-2 text-danger" /><strong>Email:</strong> {empDetails.email}</p>
+                                        <p><FaPhoneAlt className="me-2 text-success" /><strong>Phone Number:</strong> {empDetails.phone_number}</p>
+                                    </div>
+                                    <div className="col-md-6">
+                                        <h5 className="text-primary mb-3">
+                                            <FaUser className="me-2" />
+                                            Professional Information
+                                        </h5>
+                                        <p><strong>Date of Appointment:</strong> {new Date(empDetails.date_of_oppointment).toLocaleDateString()}</p>
+                                        <p><strong>Grade:</strong> {empDetails.grade}</p>
+                                        <p><strong>Department:</strong> {empDetails.department}</p>
+                                        <p><strong>Educational Qualification:</strong> {empDetails.educational_qualification}</p>
+                                        <p><strong>Date of Pay Increment:</strong> {new Date(empDetails.date_of_grant_of_pay_increment).toLocaleDateString()}</p>
+                                        <p><strong>Date of Retirement:</strong> {new Date(empDetails.date_of_retirement).toLocaleDateString()}</p>
+                                        <p><strong>Date of Resignation:</strong> {new Date(empDetails.date_of_resignation).toLocaleDateString()}</p>
+                                        <p><strong>Awarding of Gratuities:</strong> {empDetails.awarding_of_gratuities}</p>
+                                        <p><strong>Regarding Promotions:</strong> {empDetails.regarding_promotions}</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div className="d-flex justify-content-center">
+                        <div className="d-flex justify-content-center mt-4">
                             <button
                                 className="btn btn-outline-primary btn-lg px-4"
                                 onClick={() => navigate('/employee')}

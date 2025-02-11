@@ -12,7 +12,7 @@ const FolderPage = () => {
 
   return (
     <div className="welcome-container1">
-      <button className='home-button' onClick={() => window.location.href = '/Home'}>Home</button>
+      <button className='home-button' onClick={() => window.location.href = '/Home'}>🏠 Home</button>
       <div className="welcome-content">
         <div className="welcome-title">
           WELCOME TO <span className="highlight">USDA</span> Document Drive

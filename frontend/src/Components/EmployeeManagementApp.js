@@ -72,7 +72,7 @@ function EmployeeManagementApp() {
 
     return (
         <div className='d-flex flex-column min-vh-100' style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
-            <button className='home-button' onClick={() => window.location.href = '/Home'}>Home</button>
+            <button className='home-button' onClick={() => window.location.href = '/Home'}>🏠 Home</button>
             <div className='d-flex flex-column justify-content-center align-items-center w-100 p-3'>
                 <h1 className='text-shadow' style={{ fontSize: '3rem', fontWeight: 'bold', color: '#fff' }}> USDA Employee Management System</h1>
                 <div className='w-100 d-flex justify-content-center mt-4'>
