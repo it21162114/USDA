@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import './EmpIncrement.css'; // Import the updated CSS file
 import backgroundImage from '../img/IncrementBG.jpg';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
 
 const EmployeeTable = () => {
+    const navigate = useNavigate(); // Initialize useNavigate
     const [employees, setEmployees] = useState([]);
     const [upcomingEmployees, setUpcomingEmployees] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -48,6 +50,10 @@ const EmployeeTable = () => {
         }));
     };
 
+    const handleHomeButtonClick = () => {
+        navigate('/Home'); // Navigate to the home page
+    };
+
     if (loading || loadingUpcoming) return <div className="loading">Loading...</div>;
 
     return (
@@ -57,14 +63,27 @@ const EmployeeTable = () => {
                 backgroundSize: 'cover',
                 backgroundPosition: 'center'
             }}>
-            {/* Updated Home Button */}
-            <button 
-                className="home-button" 
-                onClick={() => window.location.href = '/Home'}
-            >
-                🏠 Home
-            </button>
-
+            {/* Home Button */}
+                <button
+                    className='home-button09'
+                    onClick={handleHomeButtonClick}
+                    style={{
+                        position: 'absolute',
+                        top: '20px',
+                        left: '20px',
+                        backgroundColor: '#ed7428',
+                        border: 'none',
+                        color: '#fff',
+                        padding: '10px 20px',
+                        borderRadius: '25px',
+                        fontSize: '1rem',
+                        cursor: 'pointer',
+                        boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+                        transition: 'background-color 0.3s ease'
+                    }}
+                >
+                    🏠 Home
+                </button>    
             <div className="container">
                 <h1 className="title">Employee Increments Management System</h1>
                 <div className="tables-container">

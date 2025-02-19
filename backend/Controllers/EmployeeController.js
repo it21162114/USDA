@@ -154,9 +154,9 @@ const updateEmployeeById = async (req, res) => {
             message: 'Internal Server Error',
             success: false,
             error: err
-        });
+        })
     }
-};
+}
 
 const getSelectedEmployeeFields = async (req, res) => {
     try {
@@ -178,7 +178,7 @@ const getSelectedEmployeeFields = async (req, res) => {
 
 const getEmployeesWithUpcomingPayIncrement = async (req, res) => {
     try {
-        // Get the current date and calculate the target date (five days prior)
+        // Get the current date and calculate the target date (30 days prior)
         const today = new Date();
         const targetDate = new Date(today);
         targetDate.setDate(today.getDate() + 30);

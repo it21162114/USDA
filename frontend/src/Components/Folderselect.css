@@ -58,3 +58,23 @@ body {
 .division-buttons button0:hover {
     background-color: #f27021; /* Orange on hover */
 }
+
+.home-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: #ed7428;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.home-button:hover {
+    background-color: #d16322;
+    /* Darker shade on hover */
+}

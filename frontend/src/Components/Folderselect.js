@@ -10,10 +10,34 @@ const FolderPage = () => {
     navigate(route); // Navigate to the given route
   };
 
+const handleHomeButtonClick = () => {
+        navigate('/Home'); // Navigate to the home page
+    };  
+
   return (
     <div className="welcome-container1">
-      <button className='home-button' onClick={() => window.location.href = '/Home'}>🏠 Home</button>
       <div className="welcome-content">
+        {/* Home Button */}
+                <button
+                    className='home-button'
+                    onClick={handleHomeButtonClick}
+                    style={{
+                        position: 'absolute',
+                        top: '20px',
+                        left: '20px',
+                        backgroundColor: '#ed7428',
+                        border: 'none',
+                        color: '#fff',
+                        padding: '10px 20px',
+                        borderRadius: '25px',
+                        fontSize: '1rem',
+                        cursor: 'pointer',
+                        boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+                        transition: 'background-color 0.3s ease'
+                    }}
+                >
+                    🏠 Home
+                </button>
         <div className="welcome-title">
           WELCOME TO <span className="highlight">USDA</span> Document Drive
         </div>

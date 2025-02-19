@@ -2,14 +2,14 @@ import React, { useEffect, useState, useCallback } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { notify } from '../utils';
 import { GetEmployeeById } from '../api';
-import backgroundImage from '../img/p3.jpeg';
 import { FaPhoneAlt, FaEnvelope, FaHome, FaUser, FaBirthdayCake } from 'react-icons/fa';
+import './EmployeeDetails.css'; // Import the CSS file
 
 function EmployeeDetails() {
     const { id } = useParams();
     const [empDetails, setEmpDetails] = useState({});
     const navigate = useNavigate();
-    
+
     const fetchEmpById = useCallback(async () => {
         try {
             const { data } = await GetEmployeeById(id);
@@ -24,82 +24,66 @@ function EmployeeDetails() {
     }, [fetchEmpById]);
 
     return (
-        <div
-            className='d-flex flex-column min-vh-100'
-            style={{
-                backgroundImage: `url(${backgroundImage})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                paddingBottom: '50px',
-            }}
-        >
-            <div className="container mt-5">
-                <div className="card shadow-lg" style={{ borderRadius: '15px', borderColor: '#2f3336cc', backgroundColor: 'rgba(255, 255, 255, 0.9)' }}>
-                    <div
-                        className="card-header text-white text-center"
-                        style={{
-                            background: 'linear-gradient(45deg, #242526, #b3560b)',
-                            borderTopLeftRadius: '15px',
-                            borderTopRightRadius: '15px',
-                            padding: '15px 0',
-                        }}
-                    >
-                        <h2 className="mb-0">Employee Details</h2>
+        <div className="employee-details-container">
+            <div className="employee-details-card">
+                <div className="employee-details-header">
+                    <h2>Employee Details</h2>
+                </div>
+                <div className="employee-details-body">
+                    <div className="employee-profile-section">
+                        <div className="employee-profile-image">
+                            <img
+                                src={empDetails.profileImage || 'https://via.placeholder.com/150'}
+                                alt={empDetails.name}
+                                className="profile-image"
+                            />
+                            <h3>{empDetails.name}</h3>
+                        </div>
+                        <div className="employee-details-info">
+                            <div className="info-section">
+                                <h4><FaUser className="icon" /> Personal Information</h4>
+                                <p><strong>Employee Number:</strong> {empDetails.employee_number}</p>
+                                <p><strong>ID Number:</strong> {empDetails.id_number}</p>
+                                <p><FaBirthdayCake className="icon" /><strong>Birthday:</strong> {new Date(empDetails.birthday).toLocaleDateString()}</p>
+                            </div>
+                            <div className="info-section">
+                                <h4><FaHome className="icon" /> Address</h4>
+                                <p><strong>Permanent Address:</strong> {empDetails.address_permanent}</p>
+                                <p><strong>Temporary Address:</strong> {empDetails.address_temporary}</p>
+                            </div>
+                            <div className="info-section">
+                                <h4><FaEnvelope className="icon" /> Contact Information</h4>
+                                <p><strong>Email:</strong> {empDetails.email}</p>
+                                <p><FaPhoneAlt className="icon" /><strong>Phone Number:</strong> {empDetails.phone_number}</p>
+                            </div>
+                            <div className="info-section">
+                                <h4>Professional Information</h4>
+                                <p><strong>Position:</strong> {empDetails.position}</p>
+                                <p><strong>Department:</strong> {empDetails.department}</p>
+                                <p><strong>Grade:</strong> {empDetails.grade}</p>
+                                <p><strong>Educational Qualification:</strong> {empDetails.educational_qualification}</p>
+                            </div>
+                            <div className="info-section">
+                                <h4>Dates</h4>
+                                <p><strong>Date of Appointment:</strong> {new Date(empDetails.date_of_oppointment).toLocaleDateString()}</p>
+                                <p><strong>Date of Pay Increment:</strong> {new Date(empDetails.date_of_grant_of_pay_increment).toLocaleDateString()}</p>
+                                <p><strong>Date of Retirement:</strong> {new Date(empDetails.date_of_retirement).toLocaleDateString()}</p>
+                                <p><strong>Date of Resignation:</strong> {new Date(empDetails.date_of_resignation).toLocaleDateString()}</p>
+                            </div>
+                            <div className="info-section">
+                                <h4>Additional Information</h4>
+                                <p><strong>Awarding of Gratuities:</strong> {empDetails.awarding_of_gratuities}</p>
+                                <p><strong>Regarding Promotions:</strong> {empDetails.regarding_promotions}</p>
+                            </div>
+                        </div>
                     </div>
-                    <div className="card-body p-4">
-                        <div className="row">
-                            <div className="col-md-4 text-center mb-4">
-                                <img
-                                    src={empDetails.profileImage || 'https://via.placeholder.com/150'}
-                                    alt={empDetails.name}
-                                    className="img-fluid rounded-circle"
-                                    style={{ width: '150px', height: '150px', objectFit: 'cover', border: '5px solid #3b82f6' }}
-                                />
-                                <h4 className="mt-3">{empDetails.name}</h4>
-                                <p className="text-muted">{empDetails.position}</p>
-                            </div>
-                            <div className="col-md-8">
-                                <div className="row">
-                                    <div className="col-md-6">
-                                        <h5 className="text-primary mb-3">
-                                            <FaUser className="me-2" />
-                                            Personal Information
-                                        </h5>
-                                        <p><strong>Employee Number:</strong> {empDetails.employee_number}</p>
-                                        <p><strong>ID Number:</strong> {empDetails.id_number}</p>
-                                        <p><FaHome className="me-2 text-secondary" /><strong>Permanent Address:</strong> {empDetails.address_permanent}</p>
-                                        <p><FaHome className="me-2 text-secondary" /><strong>Temporary Address:</strong> {empDetails.address_temporary}</p>
-                                        <p><FaBirthdayCake className="me-2 text-warning" /><strong>Birthday:</strong> {new Date(empDetails.birthday).toLocaleDateString()}</p>
-                                        <p><FaEnvelope className="me-2 text-danger" /><strong>Email:</strong> {empDetails.email}</p>
-                                        <p><FaPhoneAlt className="me-2 text-success" /><strong>Phone Number:</strong> {empDetails.phone_number}</p>
-                                    </div>
-                                    <div className="col-md-6">
-                                        <h5 className="text-primary mb-3">
-                                            <FaUser className="me-2" />
-                                            Professional Information
-                                        </h5>
-                                        <p><strong>Date of Appointment:</strong> {new Date(empDetails.date_of_oppointment).toLocaleDateString()}</p>
-                                        <p><strong>Grade:</strong> {empDetails.grade}</p>
-                                        <p><strong>Department:</strong> {empDetails.department}</p>
-                                        <p><strong>Educational Qualification:</strong> {empDetails.educational_qualification}</p>
-                                        <p><strong>Date of Pay Increment:</strong> {new Date(empDetails.date_of_grant_of_pay_increment).toLocaleDateString()}</p>
-                                        <p><strong>Date of Retirement:</strong> {new Date(empDetails.date_of_retirement).toLocaleDateString()}</p>
-                                        <p><strong>Date of Resignation:</strong> {new Date(empDetails.date_of_resignation).toLocaleDateString()}</p>
-                                        <p><strong>Awarding of Gratuities:</strong> {empDetails.awarding_of_gratuities}</p>
-                                        <p><strong>Regarding Promotions:</strong> {empDetails.regarding_promotions}</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="d-flex justify-content-center mt-4">
-                            <button
-                                className="btn btn-outline-primary btn-lg px-4"
-                                onClick={() => navigate('/employee')}
-                                style={{ borderRadius: '10px', transition: '0.3s', background: 'linear-gradient(45deg, #d9670b, #e09b07)' }}
-                            >
-                                Back
-                            </button>
-                        </div>
+                    <div className="employee-details-footer">
+                        <button
+                            className="back-button"
+                            onClick={() => navigate('/employee')}
+                        >
+                            Back to Employee List
+                        </button>
                     </div>
                 </div>
             </div>

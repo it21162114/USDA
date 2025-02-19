@@ -2,8 +2,11 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./Form.css"; // Assuming you're using an external CSS file for styles
 import backgroundImage from '../img/letterformbg.jpg';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
+
 
 const Form = () => {
+  const navigate = useNavigate(); // Initialize useNavigate
   const [formData, setFormData] = useState({
     fileNo: "",
     date: "",
@@ -67,14 +70,38 @@ const Form = () => {
     }
   };
 
+  const handleHomeButtonClick = () => {
+        navigate('/Home'); // Navigate to the home page
+    };
+
   return (
     <div className="App1" style={{
       backgroundImage: `url(${backgroundImage})`,
       backgroundSize: 'cover',
       backgroundPosition: 'center'
     }}>
-      <button className='home-button' onClick={() => window.location.href = '/Home'}>Home</button>
     <div className="form-container">
+      {/* Home Button */}
+                <button
+                    className='home-button'
+                    onClick={handleHomeButtonClick}
+                    style={{
+                        position: 'absolute',
+                        top: '20px',
+                        left: '20px',
+                        backgroundColor: '#ed7428',
+                        border: 'none',
+                        color: '#fff',
+                        padding: '10px 20px',
+                        borderRadius: '25px',
+                        fontSize: '1rem',
+                        cursor: 'pointer',
+                        boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+                        transition: 'background-color 0.3s ease'
+                    }}
+                >
+                    ⬅️ Back
+                </button>
       <h1 className="form-header">Service Confirmation Form</h1>
       <form onSubmit={handleSubmit} className="form">
         <div className="form-section">
