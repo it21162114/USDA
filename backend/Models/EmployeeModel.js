@@ -21,8 +21,7 @@ const EmployeeSchema = new Schema({
         unique: true
     },
     address_permanent: {
-        type: String,
-        required: true
+        type: String  
     },
     address_temporary: {
         type: String
@@ -32,25 +31,19 @@ const EmployeeSchema = new Schema({
         required: true
     },
     email: {
-        type: String,
-        required: true,
-        unique: true
+        type: String   
     },
     phone_number: {
-        type: Number,
-        required: true
+        type: Number
     },
     position: {
-        type: String,
-        required: true
+        type: String
     },
     date_of_oppointment: {
-        type: Date,
-        required: true
+        type: Date
     },
     grade: {
-        type: String,
-        required: true
+        type: String
     },
     department: {
         type: String,

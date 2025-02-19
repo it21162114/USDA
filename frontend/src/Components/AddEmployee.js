@@ -140,14 +140,14 @@ function AddEmployee({ showModal, setShowModal, fetchEmployees, updateEmpObj }) 
                                 </div>
                                 <div className="col-md-6 mb-3">
                                     <label className="form-label">Email</label>
-                                    <input type="email" className="form-control" name="email" value={employee.email} onChange={handleChange} required />
+                                    <input type="email" className="form-control" name="email" value={employee.email} onChange={handleChange}  />
                                 </div>
                             </div>
 
                             <div className="row">
                                 <div className="col-md-6 mb-3">
                                     <label className="form-label">Phone Number</label>
-                                    <input type="number" className="form-control" name="phone_number" value={employee.phone_number} onChange={handleChange} required />
+                                    <input type="number" className="form-control" name="phone_number" value={employee.phone_number} onChange={handleChange}  />
                                 </div>
                                 <div className="col-md-6 mb-3">
                                     <label className="form-label">Position</label>
@@ -158,11 +158,11 @@ function AddEmployee({ showModal, setShowModal, fetchEmployees, updateEmpObj }) 
                             <div className="row">
                                 <div className="col-md-6 mb-3">
                                     <label className="form-label">Date of Oppointment</label>
-                                    <input type="date" className="form-control" name="date_of_oppointment" value={employee.date_of_oppointment} onChange={handleChange} required />
+                                    <input type="date" className="form-control" name="date_of_oppointment" value={employee.date_of_oppointment} onChange={handleChange}  />
                                 </div>
                                 <div className="col-md-6 mb-3">
                                     <label className="form-label">Grade</label>
-                                    <input type="text" className="form-control" name="grade" value={employee.grade} onChange={handleChange} required />
+                                    <input type="text" className="form-control" name="grade" value={employee.grade} onChange={handleChange}  />
                                 </div>
                             </div>
 
@@ -173,36 +173,36 @@ function AddEmployee({ showModal, setShowModal, fetchEmployees, updateEmpObj }) 
                                 </div>
                                 <div className="col-md-6 mb-3">
                                     <label className="form-label">Educational Qualification</label>
-                                    <input type="text" className="form-control" name="educational_qualification" value={employee.educational_qualification} onChange={handleChange} required />
+                                    <input type="text" className="form-control" name="educational_qualification" value={employee.educational_qualification} onChange={handleChange}  />
                                 </div>
                             </div>
 
                             <div className="row">
                                 <div className="col-md-6 mb-3">
                                     <label className="form-label">Date of Grant of Pay Increment</label>
-                                    <input type="date" className="form-control" name="date_of_grant_of_pay_increment" value={employee.date_of_grant_of_pay_increment} onChange={handleChange} required />
+                                    <input type="date" className="form-control" name="date_of_grant_of_pay_increment" value={employee.date_of_grant_of_pay_increment} onChange={handleChange}  />
                                 </div>
                                 <div className="col-md-6 mb-3">
                                     <label className="form-label">Date of Retirement</label>
-                                    <input type="date" className="form-control" name="date_of_retirement" value={employee.date_of_retirement} onChange={handleChange} required />
+                                    <input type="date" className="form-control" name="date_of_retirement" value={employee.date_of_retirement} onChange={handleChange}  />
                                 </div>
                             </div>
 
                             <div className="row">
                                 <div className="col-md-6 mb-3">
                                     <label className="form-label">Date of Resignation</label>
-                                    <input type="date" className="form-control" name="date_of_resignation" value={employee.date_of_resignation} onChange={handleChange} required />
+                                    <input type="date" className="form-control" name="date_of_resignation" value={employee.date_of_resignation} onChange={handleChange}  />
                                 </div>
                                 <div className="col-md-6 mb-3">
                                     <label className="form-label">Awarding of Gratuities</label>
-                                    <input type="text" className="form-control" name="awarding_of_gratuities" value={employee.awarding_of_gratuities} onChange={handleChange} required />
+                                    <input type="text" className="form-control" name="awarding_of_gratuities" value={employee.awarding_of_gratuities} onChange={handleChange}  />
                                 </div>
                             </div>
 
                             <div className="row">
                                 <div className="col-md-6 mb-3">
                                     <label className="form-label">Regarding Promotions</label>
-                                    <input type="text" className="form-control" name="regarding_promotions" value={employee.regarding_promotions} onChange={handleChange} required />
+                                    <input type="text" className="form-control" name="regarding_promotions" value={employee.regarding_promotions} onChange={handleChange}  />
                                 </div>
                             </div>
 
